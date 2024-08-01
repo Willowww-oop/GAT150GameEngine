@@ -1,5 +1,5 @@
 #pragma once
-#include "VectorTwo.h"
+#include "../Math/VectorTwo.h"
 #include "Renderer.h"
 
 struct Particle

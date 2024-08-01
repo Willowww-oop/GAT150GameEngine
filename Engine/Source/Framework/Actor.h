@@ -1,8 +1,8 @@
 #pragma once
-#include "Transform.h"
-#include "Renderer.h"
+#include "../Math/Transform.h"
+#include "../Renderer/Renderer.h"
+#include "../Renderer/Model.h"
 #include <string>
-#include "Model.h"
 
 class Renderer;
 class Scene;

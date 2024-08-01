@@ -1,7 +1,7 @@
 #pragma once
+#include "../Math/MathUtils.h"
 #include <cmath>
 #include <stdint.h>
-#include "MathUtils.h"
 
 struct Color
 {
