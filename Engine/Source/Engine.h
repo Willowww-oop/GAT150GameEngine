@@ -15,6 +15,7 @@
 #include "Renderer/ParticleSystem.h"
 #include "Renderer/Renderer.h"
 #include "Renderer/Text.h"
+#include "Renderer/Texture.h"
 
 //input
 #include "Input/Input.h"
@@ -32,6 +33,10 @@
 #include "Framework/Game.h"
 #include "Framework/Actor.h"
 #include "Framework/Scene.h"
+
+// resources
+#include "Resources/Resource.h"
+#include "Resources/ResourceManager.h"
 
 #include <fmod.hpp>
 #include <SDL.h>

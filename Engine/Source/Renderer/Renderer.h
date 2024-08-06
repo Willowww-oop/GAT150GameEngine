@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <SDL.h>
 #include <string>
@@ -29,6 +30,10 @@ public:
 	int GetHeight() const { return m_height; }
 
 	friend class Text;
+
+	friend class Texture;
+	void DrawTexture(Texture* texture, float x, float y, float angle);
+
 
 private:
 	SDL_Window* m_window{ nullptr };

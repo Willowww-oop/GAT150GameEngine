@@ -14,6 +14,9 @@ int main(int argc, char* argv[])
 	File::SetFilePath("Assets");
 	std::cout << File::GetFilePath() << std::endl;
 
+	res_t <Texture> texture = ResourceManager::Instance().Get<Texture>("...Build/Assets/noted.png", engine->GetRenderer());
+
+
 	while (!engine->IsQuit())
 	{
 		engine->Update();
@@ -21,6 +24,7 @@ int main(int argc, char* argv[])
 		engine->GetRenderer().SetColor(0, 0, 0, 0);
 		engine->GetRenderer().BeginFrame();
 
+		engine->GetRenderer().DrawTexture(texture.get(), 30, 30, 0);
 
 		//g_engine.GetPS().Draw(g_engine.GetRenderer());
 
