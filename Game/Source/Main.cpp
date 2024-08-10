@@ -4,9 +4,42 @@
 #include <cstdlib>
 #include <vector>
 
+/*class A
+{
+public:
+	virtual ~A() { }
+};
+class B : public A 
+{
+	~B() { }
+};
+class BB : public B 
+{
+public: 
+	~BB() { }
+};
+
+
+A* Create(std::string type)
+{
+	if (type == "B")
+	{
+		return new B();
+	}
+	if (type == "C")
+	{
+		return new C();
+	}
+	return nullptr;
+}
+*/
 
 int main(int argc, char* argv[])
 {
+	Factory::Instance().Register<Actor>(Actor::GetTypeName());
+	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
+
+
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 
 	engine->Initialize();
@@ -14,24 +47,65 @@ int main(int argc, char* argv[])
 	File::SetFilePath("Assets");
 	std::cout << File::GetFilePath() << std::endl;
 
-	res_t <Texture> texture = ResourceManager::Instance().Get<Texture>("...Build/Assets/noted.png", engine->GetRenderer());
+	std::string s;
+	File::ReadFile("text.txt", s);
+	std::cout << s << std::endl;
+
+	rapidjson::Document document;
+	Json::Load("text.txt", document);
+
+	std::string name;
+	int age;
+	bool isSlay;
 
 
-	while (!engine->IsQuit())
+	READ_DATA(document, name);
+	READ_DATA(document, age);
+	READ_DATA(document, isSlay);
+
+	std::cout << name << std::endl;
+	std::cout << age << std::endl;
+	std::cout << isSlay << std::endl;
+
+
 	{
-		engine->Update();
 
-		engine->GetRenderer().SetColor(0, 0, 0, 0);
-		engine->GetRenderer().BeginFrame();
+		res_t <Texture> texture = ResourceManager::Instance().Get<Texture>("noted.png", engine->GetRenderer());
 
-		engine->GetRenderer().DrawTexture(texture.get(), 30, 30, 0);
+		Transform t ({ 30, 30 }, 0, 1);
+		std::unique_ptr<Actor> actor = std::make_unique<Actor>(t);
+		std::unique_ptr<TextureComponent> component = Factory::Instance().Create<TextureComponent>("TextureComponent");
+		component->texture = texture;
+		actor->AddComponent(std::move(component));
 
-		//g_engine.GetPS().Draw(g_engine.GetRenderer());
+		res_t <Font> font = ResourceManager::Instance().Get<Font>("MoulinRougeFLF.ttf", 12);
+		std::unique_ptr<Text> text = std::make_unique<Text>(font);
+		text->Create(engine->GetRenderer(), "Hello", { 1, 1, 0, 1 });
+		actor->SetTransform(Transform{ { 30, 30 }, 0, 1 });
 
-		engine->GetRenderer().EndFrame();
+		while (!engine->IsQuit())
+		{
+			engine->Update();
 
+			actor->Update(engine->GetTime().GetDeltaTime());
+
+			engine->GetRenderer().SetColor(0, 0, 0, 0);
+			engine->GetRenderer().BeginFrame();
+
+			engine->GetRenderer().DrawTexture(texture.get(), 150, 150, 0);
+			text->Draw(engine->GetRenderer(), 500, 500);
+
+			actor->Draw(engine->GetRenderer());
+
+			//g_engine.GetPS().Draw(g_engine.GetRenderer());
+
+			engine->GetRenderer().EndFrame();
+
+		}
 	}
 
+	ResourceManager::Instance().Clear();
 	engine->Shutdown();
+
 	return 0;
 }

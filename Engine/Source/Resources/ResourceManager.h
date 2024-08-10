@@ -7,11 +7,15 @@
 class ResourceManager : public Singleton<ResourceManager>
 {
 public:
+	void Clear() { m_resources.clear(); }
 
 	template<typename T, typename ... TArgs>
 	res_t<T> Get(const std::string& name, TArgs ... args);
 
 	friend class Singleton;
+
+protected:
+	ResourceManager() = default;
 
 private:
 	std::map<std::string, res_t<Resource>> m_resources;

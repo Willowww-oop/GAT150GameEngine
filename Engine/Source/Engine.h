@@ -5,8 +5,8 @@
 #include "Core/EAssert.h"
 #include "Core/EFile.h"
 #include "Core/ETime.h"
-
-
+#include "Core/Json.h"
+#include "Core/Factory.h"
 
 // renderer
 #include "Renderer/Font.h"
@@ -37,6 +37,9 @@
 // resources
 #include "Resources/Resource.h"
 #include "Resources/ResourceManager.h"
+
+// components
+#include "Components/TextureComponent.h"
 
 #include <fmod.hpp>
 #include <SDL.h>

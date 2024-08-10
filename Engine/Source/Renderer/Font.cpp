@@ -30,7 +30,6 @@ bool Font::Create(std::string name, ...)
 	int fontSize = va_arg(args, int);
 	va_end(args);
 
-	bool success = Load(name, fontSize);
-	return success;
+	return Load(name, fontSize);
 
 }
