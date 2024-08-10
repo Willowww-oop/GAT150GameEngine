@@ -56,16 +56,25 @@ int main(int argc, char* argv[])
 
 	std::string name;
 	int age;
+	float speed;
 	bool isSlay;
+	VectorTwo position;
+	Color color;
 
 
 	READ_DATA(document, name);
 	READ_DATA(document, age);
+	READ_DATA(document, speed);
 	READ_DATA(document, isSlay);
+	READ_DATA(document, position);
+	READ_DATA(document, color);
 
 	std::cout << name << std::endl;
 	std::cout << age << std::endl;
+	std::cout << speed << std::endl;
 	std::cout << isSlay << std::endl;
+	std::cout << position.x << " " << position.y << std::endl;
+	std::cout << color.r << "" << color.g << "" << color.b << "" << color.a << std::endl;
 
 
 	{
