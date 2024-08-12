@@ -4,35 +4,6 @@
 #include <cstdlib>
 #include <vector>
 
-/*class A
-{
-public:
-	virtual ~A() { }
-};
-class B : public A 
-{
-	~B() { }
-};
-class BB : public B 
-{
-public: 
-	~BB() { }
-};
-
-
-A* Create(std::string type)
-{
-	if (type == "B")
-	{
-		return new B();
-	}
-	if (type == "C")
-	{
-		return new C();
-	}
-	return nullptr;
-}
-*/
 
 int main(int argc, char* argv[])
 {
