@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -13,195 +9,206 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Core">
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Core">
       <UniqueIdentifier>{792d1708-0991-4052-ba26-b8d4ed5c0717}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Input">
+    <Filter Include="Source\Input">
       <UniqueIdentifier>{5f92602b-5cea-4426-bf3b-977354209a5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Renderer">
+    <Filter Include="Source\Renderer">
       <UniqueIdentifier>{c087d5ea-2042-46f3-a2fd-b11f40f5269a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Math">
+    <Filter Include="Source\Math">
       <UniqueIdentifier>{2640553c-87e9-41e5-8445-c6fb0e4c18fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Framework">
+    <Filter Include="Source\Framework">
       <UniqueIdentifier>{d53b9e00-a913-43c1-a6d4-984fdf468629}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Audio">
+    <Filter Include="Source\Audio">
       <UniqueIdentifier>{748472a4-1dc5-4554-869f-54752cf1ea16}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Resources">
+    <Filter Include="Source\Resources">
       <UniqueIdentifier>{c09605e0-8697-42c7-8a54-ec4e40db7c34}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Components">
+    <Filter Include="Source\Components">
       <UniqueIdentifier>{0562b28a-a176-4f40-a219-6393450cea44}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\EAssert.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\EFile.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\ETime.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Audio\Audio.cpp">
-      <Filter>Source Files\Audio</Filter>
+      <Filter>Source\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\Font.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\Model.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\Particle.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\ParticleSystem.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\Renderer.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\Text.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Input\Input.cpp">
-      <Filter>Source Files\Input</Filter>
+      <Filter>Source\Input</Filter>
     </ClCompile>
     <ClCompile Include="Source\Framework\Scene.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Source\Framework\Actor.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source\Framework</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\Texture.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Components\TextureComponent.cpp">
-      <Filter>Source Files\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\Json.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\EString.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Math\Transform.cpp">
-      <Filter>Source Files\Math</Filter>
+      <Filter>Source\Math</Filter>
     </ClCompile>
     <ClCompile Include="Source\Framework\Object.cpp">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\EnginePhysicsComponent.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Components\PhysicsComponent.cpp">
+      <Filter>Source\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\EAssert.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\EFile.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\ETime.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Audio\Audio.h">
-      <Filter>Source Files\Audio</Filter>
+      <Filter>Source\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Font.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Model.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Particle.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\ParticleSystem.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Renderer.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Text.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Input\Input.h">
-      <Filter>Source Files\Input</Filter>
+      <Filter>Source\Input</Filter>
     </ClInclude>
     <ClInclude Include="Source\Math\VectorTwo.h">
-      <Filter>Source Files\Math</Filter>
+      <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Source\Math\MathUtils.h">
-      <Filter>Source Files\Math</Filter>
+      <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Source\Math\Random.h">
-      <Filter>Source Files\Math</Filter>
+      <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Source\Math\Transform.h">
-      <Filter>Source Files\Math</Filter>
+      <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Color.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Framework\Actor.h">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source\Framework</Filter>
     </ClInclude>
     <ClInclude Include="Source\Framework\Game.h">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source\Framework</Filter>
     </ClInclude>
     <ClInclude Include="Source\Framework\Scene.h">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source\Framework</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\Texture.h">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Resources\Resource.h">
-      <Filter>Source Files\Resources</Filter>
+      <Filter>Source\Resources</Filter>
     </ClInclude>
     <ClInclude Include="Source\Resources\ResourceManager.h">
-      <Filter>Source Files\Resources</Filter>
+      <Filter>Source\Resources</Filter>
     </ClInclude>
     <ClInclude Include="Source\Engine.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Source\Framework\Object.h">
-      <Filter>Source Files\Framework</Filter>
+      <Filter>Source\Framework</Filter>
     </ClInclude>
     <ClInclude Include="Source\Components\Component.h">
-      <Filter>Source Files\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Source\Components\RenderComponent.h">
-      <Filter>Source Files\Components</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Source\Components\TextureComponent.h">
-      <Filter>Source Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\Json.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\Singleton.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\EString.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\Serializable.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\Factory.h">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source\Core</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\Build\Assets\text.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
+    <ClInclude Include="Source\Core\Json.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\PhysicsComponent.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\EnginePhysicsComponent.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

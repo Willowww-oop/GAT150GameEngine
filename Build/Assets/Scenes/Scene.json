@@ -1,0 +1,40 @@
+{
+  "actors": [
+    {
+      "name": "player",
+      "transform": {
+        "position": [ 60, 60 ],
+        "rotation": 0,
+        "scale": 3
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/noted.png"
+        },
+        {
+          "type": "EnginePhysicsComponent",
+          "damping": 0
+        },
+        {
+          "type": "PlayerComponent",
+          "speed" : 100
+        }
+      ]
+    },
+    {
+      "name": "enemy",
+      "transform": {
+        "position": [ 160, 160 ],
+        "rotation": 90,
+        "scale": 1
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/noted.png"
+        }
+      ]
+    }
+  ]
+}

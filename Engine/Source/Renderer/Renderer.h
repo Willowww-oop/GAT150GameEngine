@@ -29,11 +29,11 @@ public:
 	int GetWidth() const { return m_width; }
 	int GetHeight() const { return m_height; }
 
+	void DrawTexture(class Texture* texture, float x, float y, float angle = 0.0f);
+	void DrawTexture(class Texture* texture, const struct Transform& transform, bool hflip = false);
+
 	friend class Text;
-
 	friend class Texture;
-	void DrawTexture(Texture* texture, float x, float y, float angle);
-
 
 private:
 	SDL_Window* m_window{ nullptr };

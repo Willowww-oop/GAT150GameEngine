@@ -14,7 +14,7 @@ class Actor : public Object
 {
 public:
 	Actor() = default;
-	Actor(const Transform& transform) : m_transform { transform } {}
+	Actor(const Transform& transform) : transform { transform } {}
 
 	void Initialize() override;
 	virtual void Update(float dt);
@@ -24,30 +24,50 @@ public:
 
 	void AddComponent(std::unique_ptr<Component> component);
 
-	void SetDamping(float damping) { m_damping = damping; }
-
-	const Transform& GetTransform() { return m_transform; }
-	void SetTransform(const Transform& transform) { m_transform = transform; }
-
-	virtual void OnCollision(Actor* actor) {}
-	float GetRadius() { return 0; }
+	template<typename T>
+	T* GetComponent();
+	template<typename T>
+	std::vector<T*> GetComponents();
 
 	friend class Scene;
 
 public:
+	bool destroyed = false;
 	std::string tag;
 
-
-protected:
-	bool m_destroyed = false;
 	float lifespan = 0.0f;
 
-	Transform m_transform;
-	VectorTwo m_velocity{ 0, 0 };
-	float m_damping{ 0 };
+	Transform transform;
 
-	Scene* m_scene{ nullptr };
+	Scene* scene{ nullptr };
 
-	std::vector<std::unique_ptr<Component>> m_components;
+protected:
+	std::vector<std::unique_ptr<Component>> components;
 
 };
+
+template<typename T>
+inline T* Actor::GetComponent()
+{
+	for (auto& component : components)
+	{
+		T* result = dynamic_cast<T*>(component.get());
+		if (result) return result;
+	}
+
+	return nullptr;
+}
+
+template<typename T>
+inline std::vector<T*> Actor::GetComponents()
+{
+	std::vector<T*> results;
+
+	for (auto& component : components)
+	{
+		T* result = dynamic_cast<T*>(component.get());
+		if (result) results.push_back(result);
+	}
+
+	return results;
+}
