@@ -7,13 +7,6 @@
 #include <SDL_image.h>
 #include "../Core/EAssert.h"
 
-
-Texture::~Texture()
-{
-    // if texture exists, destroy texture
-    if (m_texture != nullptr) SDL_DestroyTexture(m_texture);
-}
-
 bool Texture::Load(const std::string& filename, Renderer& renderer)
 {
     // load image onto surface

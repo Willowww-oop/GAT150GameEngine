@@ -8,4 +8,5 @@ void Object::Read(const json_t& value)
 
 void Object::Write(json_t& value)
 {
+	//
 }

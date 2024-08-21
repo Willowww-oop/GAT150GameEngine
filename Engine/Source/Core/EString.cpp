@@ -36,12 +36,9 @@ std::string ToUpper(const std::string& str)
 
 bool IsEqualIgnoreCase(const std::string& str1, const std::string& str2)
 {
-	if (str1.length() != str2.length())
-	{
-		return false;
-	}
+	if (str1.length() != str2.length()) return false;
 
-	return std::equal(str1.begin(), str1.end(), str2.end(), str2.begin(), 
+	return std::equal(str1.begin(), str1.end(), str2.begin(), str2.end(), 
 		[](char c1, char c2)
 		{
 			return std::tolower(c1) == tolower(c2);

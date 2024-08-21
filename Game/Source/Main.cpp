@@ -5,13 +5,8 @@
 #include <cstdlib>
 #include <vector>
 
-
 int main(int argc, char* argv[])
 {
-	Factory::Instance().Register<Actor>(Actor::GetTypeName());
-	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
-	Factory::Instance().Register<EnginePhysicsComponent>(EnginePhysicsComponent::GetTypeName());
-	Factory::Instance().Register<PlayerComponent>(PlayerComponent::GetTypeName());
 
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();
@@ -20,10 +15,10 @@ int main(int argc, char* argv[])
 	std::cout << File::GetFilePath() << std::endl;
 
 	// !! this code is not neccessary, it just shows the contents of the file !!
-	std::string buffer;
-	File::ReadFile("Scenes/scene.json", buffer);
+	//std::string buffer;
+	//File::ReadFile("Scenes/scene.json", buffer);
 	// show the contents of the json file
-	std::cout << buffer << std::endl;
+	//std::cout << buffer << std::endl;
 
 	rapidjson::Document document;
 	Json::Load("Scenes/scene.json", document);
@@ -37,6 +32,13 @@ int main(int argc, char* argv[])
 		engine->Update();
 		scene->Update(engine->GetTime().GetDeltaTime());
 
+		auto* actor = scene->GetActor<Actor>("text");
+		if (actor)
+		{
+			actor->transform.scale =1.0f + (Math::Sin(engine->GetTime().GetTime())) * 5;
+			actor->transform.rotation += 90 * engine->GetTime().GetDeltaTime();
+		}
+
 		// render
 		engine->GetRenderer().SetColor(0, 0, 0, 0);
 		engine->GetRenderer().BeginFrame();
@@ -45,6 +47,8 @@ int main(int argc, char* argv[])
 
 		engine->GetRenderer().EndFrame();
 	}
+
+	scene->RemoveAll();
 
 	ResourceManager::Instance().Clear();
 	engine->Shutdown();

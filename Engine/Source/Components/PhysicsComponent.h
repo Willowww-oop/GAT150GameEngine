@@ -4,7 +4,8 @@
 class PhysicsComponent : public Component
 {
 public:
-	CLASS_DECLARATION(PhysicsComponent);
+	CLASS_DECLARATION(PhysicsComponent)
+	
 
 	virtual void ApplyForce(const VectorTwo& force) = 0;
 	virtual void SetPosition(const VectorTwo& position) = 0;

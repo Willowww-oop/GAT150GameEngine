@@ -9,5 +9,5 @@ void Transform::Read(const json_t& value)
 
 void Transform::Write(json_t& value)
 {
-
+	//
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+
 #include <list>
 #include <memory>
 
@@ -16,17 +17,22 @@ public:
 	Scene(Engine* engine, Game* game = nullptr) :
 		engine{ engine }, 
 		game{ game } {}
+	Scene(const Scene& other);
 
-	CLASS_DECLARATION(Scene);
+
+	CLASS_DECLARATION(Scene)
+	CLASS_PROTOTYPE(Scene)
+
+
 
 	void Update(float dt);
 	void Draw(Renderer& renderer);
 
-	void AddActor(std::unique_ptr<Actor> actor);
+	void AddActor(std::unique_ptr<Actor> actor, bool initialize = false);
 	void RemoveAll();
 
-	template<typename T>
-	T* GetActor();
+	template<typename T> T* GetActor();
+	template<typename T> T* GetActor(const std::string& name);
 
 public:
 	Engine* engine{ nullptr };
@@ -45,6 +51,19 @@ T* Scene::GetActor()
 	{
 		T* result = dynamic_cast<T*>(actor.get());
 		if (result) return result;
+	}
+
+
+	return nullptr;
+}
+
+template<typename T>
+inline T* Scene::GetActor(const std::string& name)
+{
+	for (auto& actor : actors)
+	{
+		T* result = dynamic_cast<T*>(actor.get());
+		if (result && IsEqualIgnoreCase(result->name, name)) return result;
 	}
 
 
