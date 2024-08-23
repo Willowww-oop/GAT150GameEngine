@@ -28,6 +28,5 @@ protected:
 	int m_lives = 0;
 
 	Engine* m_engine{ nullptr };
-
-	Scene* m_scene{ nullptr };
+	Scene* scene{ nullptr };
 };

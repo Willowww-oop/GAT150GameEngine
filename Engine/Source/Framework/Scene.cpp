@@ -28,6 +28,7 @@ void Scene::Update(float dt)
 	{
 		if (actor->active) actor->Update(dt);
 	}
+	/*
 
 	// collisions
 
@@ -56,7 +57,8 @@ void Scene::Update(float dt)
 
 	// destroy
 
-	std::erase_if(actors, [](auto& actor) { return actor->destroyed; });
+	//std::erase_if(actors, [](auto& actor) { return actor->destroyed; });
+	*/
 }
 
 void Scene::Draw(Renderer& renderer)

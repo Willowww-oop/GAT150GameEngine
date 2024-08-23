@@ -11,6 +11,8 @@ bool Engine::Initialize()
 
 	m_renderer = std::make_unique<Renderer>();
 	m_input = std::make_unique<Input>();
+	m_particleSystem = std::make_unique<ParticleSystem>();
+	m_physics = std::make_unique<Physics>();
 	m_audio = std::make_unique<Audio>();
 
 
@@ -20,9 +22,7 @@ bool Engine::Initialize()
 	m_audio->Initialize();
 
 	m_time = std::make_unique<Time>();
-
-	m_particleSystem = std::make_unique<ParticleSystem>();
-
+	m_physics->Initialize();
 	return true;
 }
 
@@ -30,6 +30,7 @@ void Engine::Shutdown()
 {
 	m_renderer->Shutdown();
 	m_input->Shutdown();
+	m_physics->Shutdown();
 	m_audio->Shutdown();
 
 	// display memory leaks
@@ -56,6 +57,7 @@ void Engine::Update()
 	m_time->Tick();
 
 	m_input->Update();
+	m_physics->Update(m_time->GetDeltaTime());
 	m_audio->Update();
 
 	m_particleSystem->Update(m_time->GetDeltaTime());

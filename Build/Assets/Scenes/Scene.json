@@ -24,20 +24,18 @@
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "Textures/noted.png"
+          "textureName": "Textures/playership.png"
         },
         {
-          "type": "EnginePhysicsComponent",
-          "velocity": [ 0, 0 ],
-          "damping": 3.0
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.85,
+          "angularDamping": 0.85,
+          "gravityScale": 0,
+          "size" :  [32, 32]
         },
         {
           "type": "PlayerComponent",
-          "speed": 700
-        },
-        {
-          "type": "CircleCollisionComponent",
-          "radius": 24
+          "speed": 200
         }
       ]
     },
@@ -51,17 +49,20 @@
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "textures/noted.png"
+          "textureName": "Textures/enemyship.png"
         },
         {
-          "type": "CircleCollisionComponent",
-          "radius": 24
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.85,
+          "angularDamping": 0.85,
+          "gravityScale": 0,
+          "size": [32,32]
         }
       ]
     },
     {
       "name": "text",
-      "active": true,
+      "active": false,
       "transform": {
         "position": [ 60, 360 ],
         "rotation": 0,
@@ -70,7 +71,7 @@
       "components": [
         {
           "type": "TextComponent",
-          "text": "Hello World!",
+          "text": "Haiii",
           "fontName": "Fonts/GameText.ttf",
           "fontSize": 24,
           "color": [ 0, 1, 0, 1 ]
@@ -91,17 +92,16 @@
           "textureName": "Textures/rocket.png"
         },
         {
-          "type": "EnginePhysicsComponent",
-          "velocity": [ 0, 0 ],
-          "damping": 0.0
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.0,
+          "angularDamping": 0.0,
+          "gravityScale": 0,
+          "isSensor": true,
+          "size": [ 32, 16 ]
         },
         {
           "type": "RocketComponent",
           "speed": 400
-        },
-        {
-          "type": "CircleCollisionComponent",
-          "radius": 12
         }
       ]
     }

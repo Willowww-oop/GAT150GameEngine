@@ -1,7 +1,7 @@
 #include "CircleCollisionComponent.h"
 #include "Framework/Actor.h"
 
-
+FACTORY_REGISTER(CircleCollisionComponent)
 
 void CircleCollisionComponent::Initialize()
 {

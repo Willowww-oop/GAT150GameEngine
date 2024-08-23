@@ -10,16 +10,16 @@ void RocketComponent::Initialize()
 
 void RocketComponent::Update(float dt)
 {
-	VectorTwo direction{ 0, 0 };
-
-
 	owner->GetComponent<PhysicsComponent>()->SetVelocity(owner->transform.Forward() * speed);
-
 }
 
 void RocketComponent::OnCollisionEnter(Actor* actor)
 {
-	std::cout << "Player hit\n";
+	if (!actor->destroyed && (actor->name == "enemy"))
+	{
+		EVENT_NOTIFY_DATA("AddPoints", 200);
+		actor->destroyed = true;
+	}
 }
 
 void RocketComponent::Read(const json_t& value)

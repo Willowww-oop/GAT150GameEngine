@@ -6,8 +6,9 @@
 
 FACTORY_REGISTER(TextureComponent)
 
+
 void TextureComponent::Initialize()
-{
+ {
 	if (!textureName.empty())
 	{ 
 		texture = ResourceManager::Instance().Get<Texture>(textureName,owner->scene->engine->GetRenderer());

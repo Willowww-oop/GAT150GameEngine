@@ -5,6 +5,7 @@ class CircleCollisionComponent : public CollisionComponent
 {
 public:
 	CLASS_DECLARATION(CircleCollisionComponent)
+	CLASS_PROTOTYPE(CircleCollisionComponent)
 
 public:
 	float radius = 0.0f;
@@ -12,6 +13,4 @@ public:
 	void Initialize() override;
 	void Update(float dt) override;
 	bool CheckCollision(const CollisionComponent* collision) override;
-
-
 };

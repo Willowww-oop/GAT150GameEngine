@@ -39,10 +39,17 @@
 #include "Resources/Resource.h"
 #include "Resources/ResourceManager.h"
 
+// event system
+#include "Event/EventSystem.h"
+
 // components
 #include "Components/TextureComponent.h"
 #include "Components/EnginePhysicsComponent.h"
 #include "Components/TextComponent.h"
+
+// physics
+#include "Physics/Physics.h"
+#include "Physics/RigidBody.h"
 
 #include <fmod.hpp>
 #include <SDL.h>
@@ -64,6 +71,8 @@ public:
 	Renderer& GetRenderer() { return *m_renderer; }
 	Input& GetInput() { return *m_input; }
 	Audio& GetAudio() { return *m_audio; }
+	Physics& GetPhysics() { return *m_physics; }
+
 	ParticleSystem& GetPS() { return *m_particleSystem; }
 	
 	Time& GetTime() { return *m_time; }
@@ -79,6 +88,7 @@ private:
 	std::unique_ptr<Renderer> m_renderer;
 	std::unique_ptr<Input> m_input;
 	std::unique_ptr<Audio> m_audio;
+	std::unique_ptr<Physics> m_physics;
 
 	std::unique_ptr<ParticleSystem> m_particleSystem;
 };

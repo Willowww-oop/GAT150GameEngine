@@ -1,11 +1,11 @@
 #include "Texture.h"
-#include "../Math/VectorTwo.h"
+#include "Math/VectorTwo.h"
 #include "Renderer.h"
+#include "Core/EAssert.h"
 
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
-#include "../Core/EAssert.h"
 
 bool Texture::Load(const std::string& filename, Renderer& renderer)
 {

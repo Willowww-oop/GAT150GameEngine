@@ -8,6 +8,7 @@ public:
 	
 
 	virtual void ApplyForce(const VectorTwo& force) = 0;
+	virtual void ApplyTorque(float angle) = 0;
 	virtual void SetPosition(const VectorTwo& position) = 0;
 	virtual void SetVelocity(const VectorTwo& velocity) = 0;
 
