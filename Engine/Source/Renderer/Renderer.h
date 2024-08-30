@@ -1,5 +1,6 @@
 #pragma once
 #include "Math/VectorTwo.h"
+#include "Math/Rect.h"
 
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -33,6 +34,7 @@ public:
 
 	void DrawTexture(std::weak_ptr <class Texture> texture, float x, float y, float angle = 0.0f);
 	void DrawTexture(std::weak_ptr <class Texture> texture, const struct Transform& transform, bool hflip = false);
+	void DrawTexture(std::weak_ptr <class Texture> texture, const struct Transform& transform, const Rect& source, bool hflip = false);
 
 	friend class Text;
 	friend class Texture;

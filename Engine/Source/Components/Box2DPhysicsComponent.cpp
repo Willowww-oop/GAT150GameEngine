@@ -16,7 +16,13 @@ Box2DPhysicsComponent::Box2DPhysicsComponent(const Box2DPhysicsComponent& other)
 void Box2DPhysicsComponent::Initialize()
 {
 	rigidBodyDef.actor = owner;
-	m_rigidBody = std::make_unique<RigidBody>(owner->transform, size, rigidBodyDef, owner->scene->engine->GetPhysics());
+	if (size.x == 0 && size.y == 0)
+	{
+		auto textureComponent = owner->GetComponent<TextureComponent>();
+		size = VectorTwo{ textureComponent->source.w, textureComponent->source.h };
+	}
+
+	m_rigidBody = std::make_unique<RigidBody>(owner->transform, size * scale, rigidBodyDef, owner->scene->engine->GetPhysics());
 }
 
 void Box2DPhysicsComponent::Update(float dt)
@@ -58,9 +64,14 @@ void Box2DPhysicsComponent::Read(const json_t& value)
 	READ_DATA_NAME(value, "density", rigidBodyDef.density);
 	READ_DATA_NAME(value, "isSensor", rigidBodyDef.isSensor);
 
-	READ_DATA_STRUCT(value, gravityScale, rigidBodyDef);
+	std::string shape;
+	READ_DATA(value, shape);
+
+	if (shape == "capsule") rigidBodyDef.shape = RigidBody::Shape::CAPSULE;
+	else if (shape == "circle") rigidBodyDef.shape = RigidBody::Shape::CIRCLE;
 
 	READ_DATA(value, size);
+	READ_DATA(value, scale);
 }
 
 void Box2DPhysicsComponent::Write(json_t& value)

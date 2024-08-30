@@ -25,6 +25,7 @@ public:
 public:
 	RigidBody::def_t rigidBodyDef;
 	VectorTwo size{ 0, 0 };
+	VectorTwo scale{ 1, 1 };
 
 private:
 	std::unique_ptr<RigidBody> m_rigidBody;

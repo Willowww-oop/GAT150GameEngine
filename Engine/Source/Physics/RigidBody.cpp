@@ -18,16 +18,38 @@ RigidBody::RigidBody(const Transform& transform, const VectorTwo& size, const de
 	// create body
 	m_bodyId = b2CreateBody(physics.m_worldId, &bodyDef);
 
-	// set shape
-	b2Vec2 bsize = ConvertVec2(Physics::ScreenToWorld(size));
-	b2Polygon box = b2MakeBox(bsize.x, bsize.y);
 	b2ShapeDef shapeDef = b2DefaultShapeDef();
-	shapeDef.friction = def.restitution;
+
+	shapeDef.friction = def.friction;
 	shapeDef.restitution = def.restitution;
 	shapeDef.density = def.density;
 	shapeDef.isSensor = def.isSensor;
 
-	b2CreatePolygonShape(m_bodyId, &shapeDef, &box);
+	// set shape
+	b2Vec2 bsize = ConvertVec2(Physics::ScreenToWorld(size * transform.scale * 0.5f));
+	switch (def.shape)
+	{
+	case Shape::BOX:
+	{
+		b2Polygon box = b2MakeBox(bsize.x, bsize.y);
+		b2CreatePolygonShape(m_bodyId, &shapeDef, &box);
+	}
+	break;
+	case Shape::CAPSULE:
+	{
+		b2Capsule capsule{ b2Vec2{ 0, bsize.y - bsize.x }, b2Vec2{ 0, -(bsize.y - bsize.x) }, bsize.x };
+		b2CreateCapsuleShape(m_bodyId, &shapeDef, &capsule);
+	}
+	break;
+	case Shape::CIRCLE:
+	{
+		b2Circle circle{ b2Vec2{ 0, 0 }, bsize.x };
+		b2CreateCircleShape(m_bodyId, &shapeDef, &circle);
+	}
+	break;
+	default:
+		break;
+	}
 }
 
 RigidBody::~RigidBody()

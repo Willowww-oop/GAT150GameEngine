@@ -187,6 +187,7 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Components\CharacterComponent.cpp" />
     <ClCompile Include="Source\Components\PlayerComponent.cpp" />
     <ClCompile Include="Source\Components\RocketComponent.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -201,14 +202,22 @@ fmod_vc.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <Text Include="..\Build\Assets\Scenes\Scene.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Components\CharacterComponent.h" />
     <ClInclude Include="Source\Components\PlayerComponent.h" />
     <ClInclude Include="Source\Components\RocketComponent.h" />
     <ClInclude Include="Source\MyGame.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\Assets\Scenes\Game.json" />
+    <None Include="..\Build\Assets\Scenes\tilemap.json" />
     <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties _1_1_4Build_4Assets_4Scenes_4Game_1json__JsonSchema="https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

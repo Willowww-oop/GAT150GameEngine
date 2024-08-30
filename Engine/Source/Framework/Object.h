@@ -55,5 +55,6 @@ public:
 public:
 	std::string name;
 	bool active{ true };
+	bool persistent{ false };
 
 };

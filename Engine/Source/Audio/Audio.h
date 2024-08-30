@@ -18,6 +18,9 @@ public:
 
 	bool PlaySound(const std::string& name);
 
+	friend class AudioClip;
+	friend class AudioSource;
+
 private:
 	FMOD::System* m_audio{ nullptr };
 	std::map<std::string, FMOD::Sound*> m_sounds;

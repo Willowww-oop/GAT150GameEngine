@@ -57,8 +57,8 @@ void Scene::Update(float dt)
 
 	// destroy
 
-	//std::erase_if(actors, [](auto& actor) { return actor->destroyed; });
 	*/
+	std::erase_if(actors, [](auto& actor) { return actor->destroyed; });
 }
 
 void Scene::Draw(Renderer& renderer)
@@ -78,9 +78,9 @@ void Scene::AddActor(std::unique_ptr<Actor> actor, bool initialize)
 	
 }
 
-void Scene::RemoveAll()
+void Scene::RemoveAll(bool force)
 {
-	actors.clear();
+	std::erase_if(actors, [force](auto& actor) { return (force || !actor->persistent); });
 }
 
 void Scene::Read(const json_t& value)

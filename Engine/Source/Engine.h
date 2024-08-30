@@ -29,6 +29,7 @@
 #include "Math/Random.h"
 #include "Math/Transform.h"
 #include "Math/VectorTwo.h"
+#include "Math/Rect.h"
 
 // framework
 #include "Framework/Game.h"
@@ -43,7 +44,9 @@
 #include "Event/EventSystem.h"
 
 // components
+#include "Components/AudioComponent.h"
 #include "Components/TextureComponent.h"
+#include "Components/TextureAnimationComponent.h"
 #include "Components/EnginePhysicsComponent.h"
 #include "Components/TextComponent.h"
 

@@ -5,11 +5,16 @@
 
 bool MyGame::Initialize()
 {
-	rapidjson::Document document;
-	Json::Load("Scenes/scene.json", document);
 
 	m_scene = std::make_unique<Scene>(m_engine);
-	m_scene->Read(document);
+	std::string sceneNames[] = { "Scenes/tilemap.json", "Scenes/Game.json" };
+	for (auto sceneName : sceneNames)
+	{
+		rapidjson::Document document;
+		Json::Load(sceneName, document);
+		m_scene->Read(document);
+	}
+
 	m_scene->Initialize();
 
 	ADD_OBSERVER(PlayerDead, MyGame::OnPlayerDead);
@@ -20,13 +25,12 @@ bool MyGame::Initialize()
 
 void MyGame::Shutdown()
 {
-
-	m_scene->RemoveAll();
+	m_scene->RemoveAll(true);
 }
 
 void MyGame::Update(float dt)
 {
-	m_scene->Update(m_engine->GetTime().GetDeltaTime());
+	m_scene->Update(dt);
 }
 
 void MyGame::Draw(Renderer& renderer)
