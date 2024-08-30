@@ -7,7 +7,7 @@ bool MyGame::Initialize()
 {
 
 	m_scene = std::make_unique<Scene>(m_engine);
-	std::string sceneNames[] = { "Scenes/tilemap.json", "Scenes/Game.json" };
+	std::string sceneNames[] = { "Scenes/tilemap.json", "Scenes/Scene.json" };
 	for (auto sceneName : sceneNames)
 	{
 		rapidjson::Document document;

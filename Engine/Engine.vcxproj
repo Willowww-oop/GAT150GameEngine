@@ -196,6 +196,7 @@
     <ClInclude Include="Source\Components\CollisionComponent.h" />
     <ClInclude Include="Source\Components\Component.h" />
     <ClInclude Include="Source\Components\EnginePhysicsComponent.h" />
+    <ClInclude Include="Source\Components\ObjectComponent.h" />
     <ClInclude Include="Source\Components\PhysicsComponent.h" />
     <ClInclude Include="Source\Components\RenderComponent.h" />
     <ClInclude Include="Source\Components\TextComponent.h" />
@@ -245,6 +246,7 @@
     <ClCompile Include="Source\Components\Box2DPhysicsComponent.cpp" />
     <ClCompile Include="Source\Components\CircleCollisionComponent.cpp" />
     <ClCompile Include="Source\Components\EnginePhysicsComponent.cpp" />
+    <ClCompile Include="Source\Components\ObjectComponent.cpp" />
     <ClCompile Include="Source\Components\PhysicsComponent.cpp" />
     <ClCompile Include="Source\Components\TextComponent.cpp" />
     <ClCompile Include="Source\Components\TextureAnimationComponent.cpp" />
